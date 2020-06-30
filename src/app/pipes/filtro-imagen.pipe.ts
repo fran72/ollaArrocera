@@ -5,12 +5,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FiltroImagenPipe implements PipeTransform {
 
-  transform( peliculas: any[] ): any[] {
-
-
-    return peliculas.filter( peli => {
-      return peli.backdrop_path;
-    });
+  transform(value: any, args?: any): any {
+    return null;
   }
 
 }

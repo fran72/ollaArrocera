@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MoviesService } from '../services/movies.service';
+import { OllasService } from '../services/ollas.service';
 import { Pelicula } from '../interfaces/interfaces';
 
 @Component({
@@ -12,13 +12,13 @@ export class Tab1Page implements OnInit {
   peliculasRecientes: Pelicula[] = [];
   populares: Pelicula[] = [];
 
-  constructor( private moviesService: MoviesService ) {
+  constructor( private ollasService: OllasService ) {
 
   }
 
 
   ngOnInit() {
-    this.moviesService.getFeature()
+    this.ollasService.getFeature()
       .subscribe( resp => {
         this.peliculasRecientes = resp.results;
       });
@@ -31,7 +31,7 @@ export class Tab1Page implements OnInit {
   }
 
   getPopulares() {
-    this.moviesService.getPopulares()
+    this.ollasService.getPopulares()
     .subscribe( resp => {
       // console.log('Populares', resp.results);
       const arrTemp = [ ...this.populares, ...resp.results ];

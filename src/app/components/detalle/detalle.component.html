@@ -4,7 +4,7 @@
     <h1> {{ pelicula.title }} </h1>
   </ion-label>
 
-  <img [src]="pelicula.backdrop_path | imagen" *ngIf="pelicula.backdrop_path">
+  <img [src]="pelicula.backdrop_path" *ngIf="pelicula.backdrop_path">
 
   <ion-grid>
     <ion-row>
@@ -12,7 +12,7 @@
       <ion-col size="4" class="poster-detalle-sobre">
 
         <ion-card class="poster">
-          <img [src]="pelicula.poster_path | imagen" 
+          <img [src]="pelicula.poster_path" 
                class="poster"
                *ngIf="pelicula.poster_path">
         </ion-card>
@@ -75,7 +75,7 @@
       
       <ion-card class="card-actor">
         <img *ngIf="!actor.profile_path" src="/assets/no-avatar.jpg">
-        <img *ngIf="actor.profile_path" [src]="actor.profile_path | imagen">
+        <img *ngIf="actor.profile_path" [src]="actor.profile_path">
 
         <ion-label class="actor-name"> {{ actor.name }}</ion-label>
 

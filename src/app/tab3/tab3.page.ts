@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PeliculaDetalle, Genre } from '../interfaces/interfaces';
 import { DataLocalService } from '../services/data-local.service';
-import { MoviesService } from '../services/movies.service';
+import { OllasService } from '../services/ollas.service';
 
 @Component({
   selector: 'app-tab3',
@@ -16,12 +16,12 @@ export class Tab3Page {
   favoritoGenero: any[] = [];
 
   constructor( private dataLocal: DataLocalService,
-               private moviesService: MoviesService  ) { }
+               private ollasService: OllasService  ) { }
 
 
   async ionViewWillEnter() {
     this.peliculas = await this.dataLocal.cargarFavoritos();
-    this.generos = await this.moviesService.cargarGeneros();
+    this.generos = await this.ollasService.cargarGeneros();
 
     this.pelisPorGenero( this.generos, this.peliculas );
   }

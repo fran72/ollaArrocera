@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MoviesService } from '../../services/movies.service';
+import { OllasService } from '../../services/ollas.service';
 import { PeliculaDetalle, Cast } from '../../interfaces/interfaces';
 import { ModalController } from '@ionic/angular';
 import { DataLocalService } from 'src/app/services/data-local.service';
@@ -24,7 +24,7 @@ export class DetalleComponent implements OnInit {
     spaceBetween: 0
   };
 
-  constructor( private moviesService: MoviesService,
+  constructor( private ollasService: OllasService,
                private modalCtrl: ModalController,
                private dataLocal: DataLocalService ) { }
 
@@ -35,13 +35,13 @@ export class DetalleComponent implements OnInit {
       .then( existe => this.estrella = ( existe ) ? 'star' : 'star-outline' );
 
 
-    this.moviesService.getPeliculaDetalle( this.id )
+    this.ollasService.getPeliculaDetalle( this.id )
         .subscribe( resp => {
           console.log( resp );
           this.pelicula = resp;
         });
 
-    this.moviesService.getActoresPelicula( this.id )
+    this.ollasService.getActoresPelicula( this.id )
         .subscribe( resp => {
           console.log( resp );
           this.actores = resp.cast;

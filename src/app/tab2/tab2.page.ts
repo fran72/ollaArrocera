@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MoviesService } from '../services/movies.service';
+import { OllasService } from '../services/ollas.service';
 import { Pelicula } from '../interfaces/interfaces';
 import { ModalController } from '@ionic/angular';
 import { DetalleComponent } from '../components/detalle/detalle.component';
@@ -16,7 +16,7 @@ export class Tab2Page {
   peliculas: Pelicula[] = [];
   ideas: string[] = ['Spiderman', 'Avenger', 'El señor de los anillos', 'La vida es bella'];
 
-  constructor( private moviesService: MoviesService,
+  constructor( private ollasService: OllasService,
                private modalCtrl: ModalController) { }
 
   buscar( event ) {
@@ -31,7 +31,7 @@ export class Tab2Page {
     // console.log(valor);
     this.buscando = true;
 
-    this.moviesService.buscarPeliculas( valor )
+    this.ollasService.buscarPeliculas( valor )
         .subscribe( resp => {
           console.log( resp );
           this.peliculas = resp['results'];
